@@ -1245,7 +1245,7 @@ const PAL_EXT=[
 /* ═══ PAGES ══════════════════════════════════════════════════════════════ */
 const PAGES={};
 const BLURB={
- 'brand/positioning':'Who we are, who he is, and what we promise him every time.',
+ 'brand/positioning':'Who we are, who they are, and what we promise them every time.',
  'brand/identity':'The five colours, the mark, and the three rules around it.',
  'brand/voice':'How we write. What we never write.',
  'brand/rules':'The things that need the founder to change.',
@@ -1537,6 +1537,16 @@ PAGES['brand/positioning']=()=>`
 ${blkHead('The origin','Where it started')}
 <div class="panel" style="margin-bottom:1.25rem"><div class="p-body">
  <p class="lead" style="max-width:68ch;font-style:italic">Somewhere in the Kodai hills, we logged out of reality and logged into imagination.</p>
+ <p class="t-label muted" style="max-width:68ch;margin-top:.75rem">Inspired by nature, different perspectives and the desire to break away from the everyday loop, MENSCH was born to bring a fresh perspective to everyday fashion.</p>
+</div></div>
+${blkHead('Brand positioning','Where we sit')}
+<div class="panel" style="margin-bottom:1.25rem"><div class="p-body">
+ <p class="lead" style="max-width:68ch">A modern fashion label for the ones who like to do things differently. Rooted in individuality, inspired by nature and driven by what&rsquo;s next.</p>
+</div></div>
+${blkHead('Product positioning','What we actually make')}
+<div class="panel" style="margin-bottom:1.25rem"><div class="p-body">
+ <p class="lead" style="max-width:68ch">Contemporary clothing that balances everyday essentials with distinctive statement pieces. Thoughtful fits, quality fabrics and considered details, designed for comfort, versatility and repeat wear.</p>
+ <p class="t-label muted" style="max-width:68ch;margin-top:.75rem"><b>MENSCH is for everyone.</b> We do not design a men&rsquo;s range and a women&rsquo;s range. We design clothing, in sizes S to XXL, and we write about it that way everywhere &mdash; site, captions, tech packs and replies.</p>
 </div></div>
 ${blkHead('What MENSCH is','One paragraph. Learn it.')}
 <div class="panel" style="margin-bottom:1.25rem"><div class="p-body">
@@ -1546,13 +1556,30 @@ ${blkHead('Why us','What nobody else can say')}
 <div class="panel" style="margin-bottom:1.25rem"><div class="p-body">
  <p class="lead" style="max-width:68ch">Born in the hills, not a boardroom. We don't follow the mood. We create our own.</p>
 </div></div>
-${blkHead('Who we are for','Write every caption to one man')}
+${blkHead('Who we are for','Write every caption to one person')}
 <div class="g3" style="margin-bottom:1.25rem">
- ${[['Who he is','Indian, 24 to 34, metro, earning enough to choose. He has taste and no interest in explaining it.'],
-    ['What he is tired of','Looking like the feed. Logos. Clothes designed for someone ten years younger.'],
-    ['What makes him buy','It looks considered, it fits, and nobody else at the table is wearing it.']].map(([h,w])=>
+ ${[['Who they are','People aged 22 to 38, metro and Tier 1, earning enough to choose. They have taste and no interest in explaining it.'],
+    ['What they are tired of','Looking like the feed. Logos. Clothes designed for someone ten years younger.'],
+    ['What makes them buy','It looks considered, it fits, and nobody else at the table is wearing it.']].map(([h,w])=>
  `<div class="panel"><div class="p-body"><div class="lbl">${esc(h)}</div>
    <p class="t-label muted" style="margin-top:.5rem">${esc(w)}</p></div></div>`).join('')}
+</div>
+${blkHead('What we hold to','Four. Know them without looking.')}
+<div class="g2" style="margin-bottom:1.25rem">
+ ${[['Individuality','A distinct point of view in everything we make. If a piece could carry any other brand\u2019s label, it is not ours yet.'],
+    ['Versatility','Clothing that moves across moods and moments. Designed for the second wear and the twentieth, not the first photograph.'],
+    ['Simplicity','Thoughtful design without unnecessary detailing. One idea per garment, executed properly.'],
+    ['Exploration','Curiosity to look beyond the ordinary. We go and look, then design. We do not scroll and copy.']].map(([h,w],i)=>
+ `<div class="panel"><div class="p-body"><div class="lbl">0${i+1} &middot; ${esc(h)}</div>
+   <p class="t-label muted" style="margin-top:.5rem">${esc(w)}</p></div></div>`).join('')}
+</div>
+<div class="note" style="margin-bottom:1.25rem">Strength and Expression sit behind these four. Strength is what the bison means; Expression is what individuality produces. Neither is a separate ambition.</div>
+${blkHead('How we come across','Five pairs. The second half of each matters most.')}
+<div class="g3" style="margin-bottom:1.25rem">
+ ${[['Confident','not loud'],['Playful','not childish'],['Distinctive','not excessive'],
+    ['Contemporary','not trend-dependent'],['Approachable','not intimidating']].map(([a,b])=>
+ `<div class="panel"><div class="p-body"><div class="semi" style="font-size:1.05rem">${esc(a)}</div>
+   <div class="t-label muted" style="margin-top:.15rem">${esc(b)}</div></div></div>`).join('')}
 </div>
 ${blkHead('The promise','What the customer gets, every time')}
 <div class="panel"><div class="p-body flush"><table class="t">
@@ -1708,7 +1735,7 @@ ${blkHead('The funnel','Four stages. Each one has a job and a number.')}
 <div class="panel" style="margin-bottom:1.25rem"><div class="p-body flush"><table class="t">
  <thead><tr><th>Stage</th><th>What runs here</th><th>The job</th><th data-n>Share of spend</th></tr></thead>
  <tbody>
- ${[['Cold','Broad and interest-based prospecting on Meta, PMax on Google','Find men who have never heard of us','55%'],
+ ${[['Cold','Broad and interest-based prospecting on Meta, PMax on Google','Find people who have never heard of us','55%'],
    ['Warm','Video viewers, site visitors, Instagram engagers','Bring back the ones who looked and left','20%'],
    ['Hot','Cart and checkout abandon, product viewers in 7 days','Close the ones who nearly bought','15%'],
    ['Own','Email, WhatsApp, organic social, SEO','Sell again without paying for it','10%']]
@@ -1717,7 +1744,7 @@ ${blkHead('The funnel','Four stages. Each one has a job and a number.')}
  </tbody></table></div></div>
 ${blkHead('Creative — what we run','Built with Meghana. Never run an ad with no product in it.')}
 <div class="g3" style="margin-bottom:1.25rem">
- ${[['Product in motion','A man wearing it, walking, sitting, moving. Fifteen seconds. No voiceover needed.'],
+ ${[['Product in motion','Someone wearing it, walking, sitting, moving. Fifteen seconds. No voiceover needed.'],
     ['Flat and detail','The garment, the fabric, the stitch, the button. Still, clean, on our off-white.'],
     ['Real customer','UGC and creator footage, unpolished on purpose. Highest click-through, lowest production cost.']].map(([h,w])=>
  `<div class="panel"><div class="p-body"><div class="lbl">${esc(h)}</div>
@@ -1804,7 +1831,7 @@ ${blkHead('Four pillars','Every post is one of these. If it is none of them, it 
  <thead><tr><th>Pillar</th><th data-n>Share</th><th>What it looks like</th><th>What it is for</th></tr></thead>
  <tbody>
  ${[['The product','40%','The garment, worn and flat. Fabric, fit, detail, movement.','Sells. This is the one that converts.'],
-   ['The man','25%','Real men in the clothes, doing ordinary things. Not models posing.','Makes the customer see himself in it.'],
+   ['The person','25%','Real people in the clothes, doing ordinary things. Not models posing.','Makes the customer see themselves in it.'],
    ['How it is made','20%','Fabric arriving, patterns cut, the sample room, the studio.','Earns trust no advertisement can buy.'],
    ['The world around it','15%','Light, texture, weather, the hills, quiet detail. No product at all.','Builds the feeling that makes the price make sense.']]
  .map(([a,b,c,d])=>`<tr><td class="semi">${esc(a)}</td><td data-n class="fig">${b}</td>
@@ -1815,10 +1842,10 @@ ${blkHead('The weekly shape','Nine posts. Plan them on Friday for the week after
  <thead><tr><th>Day</th><th>Feed</th><th>Reel</th><th>Stories</th></tr></thead>
  <tbody>
  ${[['Monday','Product — new or hero','Product in motion','Week ahead, polls'],
-   ['Tuesday','—','The man','Behind the scenes'],
+   ['Tuesday','—','The person','Behind the scenes'],
    ['Wednesday','How it is made','—','Customer messages, UGC'],
    ['Thursday','Product — detail','Product in motion','Drop or restock'],
-   ['Friday','The world around it','The man','Styling, answers'],
+   ['Friday','The world around it','The person','Styling, answers'],
    ['Saturday','—','UGC or creator','Repost, community'],
    ['Sunday','Product — flat lay','—','Quiet. One frame.']]
  .map(([a,b,c,d])=>`<tr><td class="semi">${esc(a)}</td><td class="t-label">${esc(b)}</td>
@@ -1839,8 +1866,8 @@ ${blkHead('Creator programme','Reach we do not pay full price for')}
 ${blkHead('How to pick them')}
 <div class="g3" style="margin-bottom:1.25rem">
  ${[['Look at the comments, not the followers','Real conversation beats a big number every time. An account with 20k and forty real comments is worth more than 200k and emoji.'],
-    ['He has to look like our customer','If his feed is streetwear and sneakers, he is not ours — however good the numbers are.'],
-    ['One brand at a time','If he posted three other labels this month, skip him. Nobody believes a man who likes everything.']].map(([h,w])=>
+    ['They have to look like our customer','If their feed is streetwear and sneakers, they are not ours — however good the numbers are.'],
+    ['One brand at a time','If they posted three other labels this month, skip them. Nobody believes someone who likes everything.']].map(([h,w])=>
  `<div class="panel"><div class="p-body"><div class="lbl">${esc(h)}</div>
    <p class="t-label muted" style="margin-top:.5rem">${esc(w)}</p></div></div>`).join('')}
 </div>
@@ -1892,7 +1919,7 @@ ${blkHead('What gets measured','Reported every Monday')}
  </tbody></table></div></div>
 <div class="panel"><div class="p-body">
  <div class="lbl">The one that matters most</div>
- <p class="t-label muted" style="margin-top:.5rem;max-width:64ch">Saves and shares. Likes are politeness. A save is a man telling himself he wants it, and it is the earliest signal we get that a style will sell.</p>
+ <p class="t-label muted" style="margin-top:.5rem;max-width:64ch">Saves and shares. Likes are politeness. A save is someone telling themselves they want it, and it is the earliest signal we get that a style will sell.</p>
 </div></div>`;
 BUILT['social/platforms']=BUILT['social/pillars']=BUILT['social/creators']=BUILT['social/shoots']=BUILT['social/kpi']=true;
 
@@ -2198,7 +2225,7 @@ ${blkHead('What good looks like at day 90')}
 <div class="g3">
  ${[['2,881 orders','The sum of April, May and June. If we are within 10% either way, the model holds.'],
     ['Return rate at or under 12%','Above it and something is wrong with fit, photography or expectation setting.'],
-    ['First repeat customers','Men who bought in April buying again in June. This is the single best signal we will get.']].map(([h,w])=>
+    ['First repeat customers','People who bought in April buying again in June. This is the single best signal we will get.']].map(([h,w])=>
  `<div class="panel"><div class="p-body"><div class="lbl">${esc(h)}</div>
    <p class="t-label muted" style="margin-top:.5rem">${esc(w)}</p></div></div>`).join('')}
 </div>`;
@@ -2211,8 +2238,8 @@ ${blkHead('Year 1','April 2027 to March 2028')}
     ['Average order value',inr(T.aov),'Per order'],
     ['Sales',cr(T.gmv,2),'Before returns'],
     ['Return rate',T.ret+'%','Budgeted'],
-    ['Customers',grp(T.cust),'Individual men'],
-    ['Orders per customer',T.opc.toFixed(2),'He comes back twice'],
+    ['Customers',grp(T.cust),'Individual customers'],
+    ['Orders per customer',T.opc.toFixed(2),'They come back twice'],
     ['Break-even ROAS','2.61×','Below it, orders lose money'],
     ['Media, Year 1',lk(B.mediaYr,2),'Fixed']].map(([l,v,s])=>
   `<div class="panel"><div class="p-body"><div class="lbl-p faint">${esc(l)}</div>
@@ -2221,7 +2248,7 @@ ${blkHead('Year 1','April 2027 to March 2028')}
 </div>
 ${blkHead('How the three of you connect')}
 <div class="panel"><div class="p-body">
- <p class="lead" style="max-width:68ch">Meghana builds the audience. Mudit converts it inside a fixed budget. Gungun makes sure the parcel is worth the money so the man comes back and buys again — which is the only way the cost per order falls through the year.</p>
+ <p class="lead" style="max-width:68ch">Meghana builds the audience. Mudit converts it inside a fixed budget. Gungun makes sure the parcel is worth the money so the customer comes back and buys again — which is the only way the cost per order falls through the year.</p>
  <p class="t-label muted" style="margin-top:.875rem;max-width:68ch">None of you can hit your number alone. If social reach stalls, Mudit's cost per order rises. If dispatch slips, returns rise and Meghana has nothing good to post. The scoreboard is shared on purpose.</p>
 </div></div>`;
 
