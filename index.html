@@ -12,25 +12,62 @@
    prototypes: HSL tokens, a semantic type scale, one numeric spine, and a
    single panel primitive reused everywhere.                                */
 :root{
-  --canvas: 40 29% 94%;
-  --surface: 45 29% 97%;
-  --raised: 45 29% 97%;
-  --line: 38 22% 86%;
-  --line-2: 45 7% 76%;
-  --ink: 0 0% 11%;
-  --ink-2: 230 5% 26%;
-  --ink-3: 43 4% 42%;
-  --accent: 230 5% 26%;
-  --accent-soft: 40 22% 89%;
+  --canvas: 35 32% 93%;
+  --surface: 0 0% 100%;
+  --raised: 0 0% 100%;
+  --line: 35 21% 84%;
+  --line-2: 37 16% 75%;
+  --ink: 220 16% 11%;
+  --ink-2: 218 14% 26%;
+  --ink-3: 215 8% 41%;
+  --accent: 223 42% 35%;
+  --accent-soft: 223 32% 91%;
   --accent-ink: 0 0% 100%;
-  --pos: 152 42% 30%;
-  --neg: 8 62% 45%;
-  --cau: 34 62% 36%;
+  --pos: 101 15% 22%;
+  --neg: 22 61% 40%;
+  --cau: 40 52% 34%;
   --sb: 15rem;
   --hdr: 56px;
   --r: 10px;
   color-scheme: light;
 }
+:root[data-theme="dark"]{
+  --canvas: 222 24% 8%;
+  --surface: 220 25% 12%;
+  --raised: 221 25% 15%;
+  --line: 219 20% 19%;
+  --line-2: 218 16% 27%;
+  --ink: 36 28% 90%;
+  --ink-2: 218 15% 79%;
+  --ink-3: 217 12% 65%;
+  --accent: 222 45% 61%;
+  --accent-soft: 222 28% 18%;
+  --accent-ink: 220 29% 6%;
+  --pos: 98 21% 53%;
+  --neg: 23 61% 52%;
+  --cau: 41 54% 54%;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --canvas: 222 24% 8%;
+  --surface: 220 25% 12%;
+  --raised: 221 25% 15%;
+  --line: 219 20% 19%;
+  --line-2: 218 16% 27%;
+  --ink: 36 28% 90%;
+  --ink-2: 218 15% 79%;
+  --ink-3: 217 12% 65%;
+  --accent: 222 45% 61%;
+  --accent-soft: 222 28% 18%;
+  --accent-ink: 220 29% 6%;
+  --pos: 98 21% 53%;
+  --neg: 23 61% 52%;
+  --cau: 41 54% 54%;
+  color-scheme: dark;
+}}
+.thm{display:inline-flex;border:1px solid hsl(var(--line));border-radius:999px;overflow:hidden;background:hsl(var(--surface));margin-left:.5rem}
+.thm button{background:none;border:0;cursor:pointer;font:inherit;font-size:11px;padding:4px 10px;color:hsl(var(--ink-3));line-height:1.4}
+.thm button[aria-pressed="true"]{background:hsl(var(--accent));color:hsl(var(--accent-ink));font-weight:500}
 *,*::before,*::after{box-sizing:border-box}
 *{margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
@@ -47,7 +84,7 @@ img{display:block;max-width:100%}
   main .panel,main .ast-cell,main .card,main figure.shot{content-visibility:auto;contain-intrinsic-size:auto 320px}
 }
 :focus-visible{outline:2px solid hsl(var(--accent));outline-offset:2px}
-::selection{background:hsl(var(--accent));color:#fff}
+::selection{background:hsl(var(--accent));color:hsl(var(--accent-ink))}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{
   animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
@@ -82,6 +119,9 @@ img{display:block;max-width:100%}
 .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.875rem}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.875rem}
 .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.875rem}
+.g5{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.875rem}
+@media(max-width:900px){.g5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.g5{grid-template-columns:1fr}}
 .divide>*+*{border-top:1px solid hsl(var(--line))}
 
 /* ── Panel — the single container primitive ───────────────────────────── */
@@ -102,7 +142,7 @@ img{display:block;max-width:100%}
   flex-direction:column;background:hsl(var(--surface));border-right:1px solid hsl(var(--line))}
 .sb-brand{display:flex;align-items:center;gap:.6875rem;padding:1.125rem 1.25rem 1rem;
   border-bottom:1px solid hsl(var(--line))}
-.sb-mark{width:34px;height:34px;border-radius:9px;background:hsl(var(--ink));color:#fff;
+.sb-mark{width:34px;height:34px;border-radius:9px;background:hsl(var(--accent));color:hsl(var(--accent-ink));
   display:grid;place-items:center;font-weight:600;font-size:14px;letter-spacing:.06em;flex:none}
 .sb-name{font-weight:600;font-size:13.5px;letter-spacing:.08em;line-height:1.15;text-transform:uppercase}
 .sb-sub{font-size:10.5px;color:hsl(var(--ink-3));margin-top:2px}
@@ -113,15 +153,15 @@ img{display:block;max-width:100%}
   padding:.5rem .625rem;border-radius:7px;color:hsl(var(--ink-2));font-size:13px;
   font-weight:500;margin-bottom:1px;transition:background .12s,color .12s}
 .s-link:hover{background:hsl(var(--canvas));color:hsl(var(--ink))}
-.s-link[aria-current="true"]{background:hsl(var(--ink));color:#fff}
+.s-link[aria-current="true"]{background:hsl(var(--accent));color:hsl(var(--accent-ink))}
 .s-num{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.55;width:15px;flex:none}
 .s-link[aria-current="true"] .s-num{opacity:.7}
 .s-txt{flex:1;min-width:0}
 .s-desc{font-size:10.5px;color:hsl(var(--ink-3));margin-top:1px;line-height:1.25;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.s-link[aria-current="true"] .s-desc{color:hsl(40 8% 74%)}
+.s-link[aria-current="true"] .s-desc{color:hsl(var(--accent-ink));opacity:.72}
 .s-pct{font-family:'IBM Plex Mono',monospace;font-size:10px;color:hsl(var(--ink-3));flex:none}
-.s-link[aria-current="true"] .s-pct{color:hsl(40 8% 74%)}
+.s-link[aria-current="true"] .s-pct{color:hsl(var(--accent-ink));opacity:.72}
 .sb-foot{padding:.75rem 1rem;border-top:1px solid hsl(var(--line));display:flex;gap:.5rem}
 .sb-fb{flex:1;text-align:center;font-size:11px;font-weight:500;color:hsl(var(--ink-3));
   padding:.4375rem;border:1px solid hsl(var(--line));border-radius:6px;transition:.12s}
@@ -172,7 +212,7 @@ main{max-width:78rem;padding:clamp(1.25rem,2.6vw,2rem) clamp(1rem,2.4vw,1.75rem)
   background:hsl(var(--surface));font-size:12.5px;font-weight:500;
   transition:background .12s,border-color .12s;white-space:nowrap}
 .btn:hover{background:hsl(var(--canvas));border-color:hsl(var(--line-2))}
-.btn-primary{background:hsl(var(--ink));color:#fff;border-color:hsl(var(--ink))}
+.btn-primary{background:hsl(var(--accent));color:hsl(var(--accent-ink));border-color:hsl(var(--accent))}
 .btn-primary:hover{background:hsl(30 10% 20%)}
 .btn-sm{height:28px;padding:0 .625rem;font-size:11.5px}
 .badge{display:inline-flex;align-items:center;gap:.25rem;padding:.125rem .4375rem;
@@ -451,7 +491,7 @@ button.panel:hover{border-color:hsl(var(--line-2));box-shadow:0 4px 16px hsl(30 
 .pidx button{padding:.5rem .625rem;border-radius:6px;font-size:12.5px;color:hsl(var(--ink-2));
   display:flex;gap:.625rem;align-items:baseline;text-align:left}
 .pidx button:hover{background:hsl(var(--canvas))}
-.pidx button[aria-current="true"]{background:hsl(var(--ink));color:#fff}
+.pidx button[aria-current="true"]{background:hsl(var(--accent));color:hsl(var(--accent-ink))}
 .pidx i{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;font-style:normal}
 
 /* ═══ PRESENTATION MODE ══════════════════════════════════════════════════ */
@@ -502,7 +542,7 @@ button.panel:hover{border-color:hsl(var(--line-2));box-shadow:0 4px 16px hsl(30 
 .pi{padding:.5rem .625rem;border-radius:6px;font-size:12.5px;color:hsl(var(--ink-2));
   display:flex;gap:.625rem;align-items:baseline;text-align:left}
 .pi:hover{background:hsl(var(--canvas))}
-.pi.on{background:hsl(var(--ink));color:#fff}
+.pi.on{background:hsl(var(--accent));color:hsl(var(--accent-ink))}
 .pi i{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;font-style:normal}
 @media(max-width:700px){.pslide{padding:1.5rem 1.25rem 4rem}}
 
@@ -550,7 +590,7 @@ button.panel:hover{border-color:hsl(var(--line-2));box-shadow:0 4px 16px hsl(30 
 .pj{padding:.4375rem .625rem;border-radius:6px;font-size:12.5px;color:hsl(var(--ink-2));
   display:flex;gap:.625rem;align-items:baseline}
 .pj:hover{background:hsl(var(--canvas))}
-.pj.on{background:hsl(var(--ink));color:#fff}
+.pj.on{background:hsl(var(--accent));color:hsl(var(--accent-ink))}
 .pj i{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;font-style:normal}
 @media print{.pres{display:none!important}}
 
@@ -594,7 +634,7 @@ button.panel:hover{border-color:hsl(var(--line-2));box-shadow:0 4px 16px hsl(30 
   margin:0 0 1.25rem;gap:.25rem}
 .seg button{padding:.4375rem .8125rem;border-radius:7px;font-size:12.5px;font-weight:500;
   color:hsl(var(--ink-3));white-space:nowrap;flex:0 0 auto}
-.seg button[aria-selected="true"]{background:hsl(var(--ink));color:#fff;box-shadow:none}
+.seg button[aria-selected="true"]{background:hsl(var(--accent));color:hsl(var(--accent-ink));box-shadow:none}
 .seg::after{content:'';position:sticky;right:0;flex:none;width:1.5rem;
   background:linear-gradient(90deg,transparent,hsl(var(--canvas)));margin-left:-1.5rem}
 
@@ -875,7 +915,7 @@ table.t{min-width:34rem}
 .subhead-t .now{font-size:15px;font-weight:600;letter-spacing:-.018em;color:hsl(var(--ink))}
 .subhead-t .now::before{content:'/';color:hsl(var(--ink-3));font-weight:400;margin-right:.5rem}
 .seg{position:static;border:0;border-top:1px solid hsl(var(--line));padding:.4375rem 0;margin:0}
-.seg button[aria-selected="true"]{background:hsl(var(--ink));color:#fff}
+.seg button[aria-selected="true"]{background:hsl(var(--accent));color:hsl(var(--accent-ink))}
 @media(max-width:620px){
   .subhead-t .now{font-size:13.5px}
   .subhead-t .sec{font-size:10px}
@@ -1066,7 +1106,7 @@ main .tile.wide img{object-fit:contain !important;width:auto !important;max-widt
    Reversed states are excluded so nothing goes dark-on-dark. */
 .acc,.tagP,.tagM,.sb-role,.ai-tm,.eyebrow,small,SMALL,.grp,.v{color:#6E6C66 !important}
 .badge:not(.active):not(.on),.chip:not(.active):not(.on){color:#1C1C1C !important}
-.chip.active,.chip.on,.badge.active,.badge.on{color:#FFFFFF !important;background:#1C1C1C !important}
+.chip.active,.chip.on,.badge.active,.badge.on{color:hsl(var(--accent-ink)) !important;background:hsl(var(--accent)) !important}
 .badge.amber:not(.active){background:#EFECE4 !important;color:#7A5C4F !important}
 .badge-c,.badge.ok{background:#E9EDE6 !important;color:#41503C !important}
 .badge-p{background:#EFECE4 !important;color:#3F4045 !important}
@@ -1227,18 +1267,19 @@ function headMg(t){
 }
 
 const PAL=[
- {n:'Deep Charcoal',hex:'#1C1C1C',role:'The darkest ground. Type, the mark, packaging, store fascia.',ratio:'30%'},
- {n:'Graphite Grey',hex:'#3F4045',role:'The primary brand grey. Store walls, feature wall, panels, accent detail.',ratio:'26%'},
- {n:'Stone Grey',hex:'#8A8883',role:'Secondary type, rules, hairlines, quiet captions.',ratio:'12%'},
- {n:'Warm Off-White',hex:'#F4F1EB',role:'The primary light ground. Paper stock, the interface, reversed marks.',ratio:'22%'},
- {n:'Soft Beige',hex:'#D8D0C4',role:'Recess and second surface. Tissue, labels, fixture timber, quiet panels.',ratio:'10%'}
+ {n:'Sky Indigo',hex:'#33487D',role:'The brand colour. Logo ground, headings, links, primary buttons, packaging, campaign grounds.',ratio:'30%'},
+ {n:'Forest Ink',hex:'#343F2F',role:'The nature anchor. Second dark, confirmations, quiet product grounds, labels and tissue.',ratio:'20%'},
+ {n:'Cloud White',hex:'#E4DBCA',role:'The warm light ground. Paper stock, packaging interiors, the photography wall, large surfaces.',ratio:'26%'},
+ {n:'Sunset Clay',hex:'#B55F2C',role:'Warmth and emphasis. Seasonal stories, large headings, graphics. Never small text.',ratio:'10%'},
+ {n:'Mist Teal',hex:'#5A818A',role:'Calm and distance. Charts, secondary graphics, seasonal accents. Never small text.',ratio:'8%'},
+ {n:'Dusk Mauve',hex:'#A17C86',role:'Softness, sparingly. Graphics and large type only. Never text, never a button.',ratio:'6%'}
 ];
 /* Functional extension — interface and reporting only. Never on garment,
    packaging or campaign, which is why these sit outside PAL.              */
 const PAL_EXT=[
- {n:'Ash',hex:'#6E6C66',role:'Secondary type at small sizes, where Stone Grey drops below 4.5:1 on Warm Off-White.',use:'Captions, table sub-labels, form hints'},
- {n:'Signal Positive',hex:'#2C6D4F',role:'A figure moving the right way. Reserved for data — never decorative.',use:'Positive deltas, Done states, pass badges'},
- {n:'Signal Negative',hex:'#BA3F2C',role:'A figure moving the wrong way, or a risk above threshold.',use:'Negative deltas, risk scores 16+, fail badges'}
+ {n:'Slate',hex:'#5F6670',role:'Secondary type at small sizes, where a lighter grey drops below 4.5:1.',use:'Captions, table sub-labels, form hints'},
+ {n:'Signal Positive',hex:'#343F2F',role:'A figure moving the right way. Reserved for data \u2014 never decorative.',use:'Positive deltas, Done states, pass badges'},
+ {n:'Signal Negative',hex:'#A35528',role:'A figure moving the wrong way, or a risk above threshold.',use:'Negative deltas, risk scores 16+, fail badges'}
 ];
 
 /* — packaging: rigid box, mailer, tissue, card — */
@@ -1396,6 +1437,7 @@ function topbar(){
         :`<b>${esc(s?s.n:'')}</b>`}
   </div>
   <div class="spacer"></div>
+  <span class="thm" role="group" aria-label="Appearance"><button data-thm="light">Light</button><button data-thm="dark">Dark</button></span>
   ${prev?`<button class="btn btn-sm" data-go="${prev[0]}${prev[1]?'/'+prev[1]:''}">←</button>`:''}
   ${next?`<button class="btn btn-sm" data-go="${next[0]}${next[1]?'/'+next[1]:''}">Next →</button>`:''}
  </div>`;
@@ -1600,14 +1642,14 @@ PAGES['brand/identity']=()=>{
     <p class="t-micro muted" style="margin-top:.375rem;line-height:1.1rem">${esc(p.role)}</p>
    </div></div>`).join('')}</div>`;
  return `
-${blkHead('The palette','Five colours. Nothing else goes on a garment, a parcel or a campaign.')}
+${blkHead('The palette','Six colours, in a strict order. Sky Indigo is the brand.')}
 ${sw(PAL)}
 ${blkHead('Interface only','Reporting and dashboards. Never on product or campaign.')}
 ${sw(PAL_EXT)}
 ${blkHead('The mark','Three rules')}
 <div class="g3">
  ${[['Never explain it','The bison is not described in captions, bios or copy. People who ask are told the story in person, not in a post.'],
-    ['Never stretch, rotate or recolour','Charcoal on light, off-white on dark. That is the whole system.'],
+    ['Never stretch, rotate or recolour','Sky Indigo or charcoal on light, off-white on dark. That is the whole system.'],
     ['Give it room','Clear space on all sides equal to the height of the mark. On a garment it sits alone.']].map(([h,w])=>
  `<div class="panel"><div class="p-body"><div class="lbl">${esc(h)}</div>
    <p class="t-label muted" style="margin-top:.5rem">${esc(w)}</p></div></div>`).join('')}
@@ -2447,5 +2489,23 @@ BUILT['digital/stack']=true;
 const h0=location.hash.slice(1);
 if(h0)go(h0); else route();
 
+</script>
+
+<script>
+(function(){
+ function paint(){var t=document.documentElement.getAttribute('data-theme')||'light';
+  document.querySelectorAll('.thm button').forEach(function(b){
+   b.setAttribute('aria-pressed',String(b.dataset.thm===t));});}
+ function setTheme(t,save){document.documentElement.setAttribute('data-theme',t);
+  if(save){try{localStorage.setItem('mensch.theme',t);}catch(e){}} paint();}
+ var t=null; try{t=localStorage.getItem('mensch.theme');}catch(e){}
+ if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}
+ setTheme(t,false);
+ document.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('[data-thm]');
+  if(b){e.preventDefault();e.stopPropagation();setTheme(b.dataset.thm,true);}},true);
+ var mo=new MutationObserver(paint);
+ mo.observe(document.body,{childList:true,subtree:true});
+})();
 </script>
 </body></html>
