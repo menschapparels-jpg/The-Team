@@ -1113,7 +1113,24 @@ main .tile.wide img{object-fit:contain !important;width:auto !important;max-widt
 .src,.src-verified{color:#2C5F44 !important}
 .src-estimate{color:#7A5C4F !important}
 .src-needs{color:#8C4A3F !important}
-</style><style id="tbMark">.tb-mark{position:fixed;top:.625rem;right:.75rem;z-index:60;width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:#1C1C1C;pointer-events:none}.tb-mark svg{width:100%;height:100%;display:block}@media(max-width:1023px){.tb-mark{top:.5rem;right:.625rem;width:23px;height:23px}}@media print{.tb-mark{position:absolute}}</style></head>
+</style><style id="tbMark">.tb-mark{position:fixed;top:.625rem;right:.75rem;z-index:60;width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:#1C1C1C;pointer-events:none}.tb-mark svg{width:100%;height:100%;display:block}@media(max-width:1023px){.tb-mark{top:.5rem;right:.625rem;width:23px;height:23px}}@media print{.tb-mark{position:absolute}}
+/* phone: let section headings wrap instead of forcing the page wide */
+@media(max-width:640px){
+  .blk-h{flex-wrap:wrap;row-gap:.2rem}
+  .blk-h .r{white-space:normal}
+  .blk-h .ln{display:none}
+}
+
+/* plain chips (no .active/.on) must follow the theme, not a hardcoded black */
+[data-theme="dark"] .chip:not(.active):not(.on),
+[data-theme="dark"] .badge:not(.active):not(.on){
+  color:hsl(var(--ink-3)) !important;border-color:hsl(var(--ink-3)/.5) !important}
+@media(prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .chip:not(.active):not(.on),
+  :root:not([data-theme="light"]) .badge:not(.active):not(.on){
+    color:hsl(var(--ink-3)) !important;border-color:hsl(var(--ink-3)/.5) !important}
+}
+</style></head>
 <body><span class="tb-mark"><svg viewBox="-9 -9 118 118" width="100%" height="100%" aria-label="Mensch"><path d="M16 42 C16 24 31 16 50 16 C69 16 84 24 84 42 C84 49 78 54 70 56 C69 63 67 70 64 74 C61 78 56 79 50 79 C44 79 39 78 36 74 C33 70 31 63 30 56 C22 54 16 49 16 42 Z" fill="none" stroke="currentColor" stroke-width="3.8" stroke-linejoin="round"/> <g fill="currentColor"> <path d="M30.68 19.58 C20 15 12 10 6 4 C10 13 14.5 19.5 21.90 25.70 C24.25 23.14 27.23 21.10 30.68 19.58 Z"/> <g transform="translate(100,0) scale(-1,1)"><path d="M30.68 19.58 C20 15 12 10 6 4 C10 13 14.5 19.5 21.90 25.70 C24.25 23.14 27.23 21.10 30.68 19.58 Z"/></g> <path d="M32 27 L44 27 L38 43 ZM43.5 26 L56.5 26 L50 48 ZM56 27 L68 27 L62 43 Z"/> </g></svg></span>
 <button class="sb-toggle" id="sbToggle" aria-label="Menu">☰</button>
 <div class="sb-scrim" id="sbScrim"></div>
